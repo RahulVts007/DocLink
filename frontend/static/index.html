@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocLink</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <img src="/assets/icons/logo-full.svg" alt="DocLink" />
+      </div>
+      <nav class="nav">
+        <button id="showPatient" class="btn btn-secondary">Patient</button>
+        <button id="showAdmin" class="btn btn-secondary">Admin</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero card">
+        <div class="hero-content">
+          <p class="eyebrow">DocLink Console</p>
+          <h1>Simple Healthcare App</h1>
+        </div>
+      </section>
+
+      <section id="patientSection" class="card">
+        <p class="section-tag">Patient Intake</p>
+        <h2>1) Create Patient</h2>
+        <form id="createPatientForm" class="form-grid">
+          <input name="name" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" placeholder="Phone" required />
+          <button class="btn" type="submit">Get Started</button>
+        </form>
+        <p class="hint">Current patient: <span id="patientId">None</span></p>
+      </section>
+
+      <section id="registerSection" class="card">
+        <p class="section-tag">Profile Registration</p>
+        <h2>2) Register Details</h2>
+        <form id="registerForm" class="form-grid two">
+          <input name="birthDate" type="date" placeholder="Birth date" />
+          <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <input name="address" placeholder="Address" />
+          <input name="occupation" placeholder="Occupation" />
+          <input name="emergencyContactName" placeholder="Emergency contact name" />
+          <input name="emergencyContactNumber" placeholder="Emergency contact number" />
+          <input name="primaryPhysician" placeholder="Primary physician" />
+          <input name="insuranceProvider" placeholder="Insurance provider" />
+          <input name="insurancePolicyNumber" placeholder="Insurance policy number" />
+          <input name="identificationType" placeholder="Identification type" value="Birth Certificate" />
+          <input name="identificationNumber" placeholder="Identification number" />
+          <input name="identificationDocument" type="file" />
+          <textarea name="allergies" placeholder="Allergies"></textarea>
+          <textarea name="currentMedication" placeholder="Current medication"></textarea>
+          <textarea name="familyMedicalHistory" placeholder="Family medical history"></textarea>
+          <textarea name="pastMedicalHistory" placeholder="Past medical history"></textarea>
+          <label><input type="checkbox" name="treatmentConsent" /> Treatment consent</label>
+          <label><input type="checkbox" name="disclosureConsent" /> Disclosure consent</label>
+          <label><input type="checkbox" name="privacyConsent" /> Privacy consent</label>
+          <button class="btn" type="submit">Save Profile</button>
+        </form>
+      </section>
+
+      <section id="appointmentSection" class="card">
+        <p class="section-tag">Appointment</p>
+        <h2>3) Create Appointment</h2>
+        <form id="appointmentForm" class="form-grid">
+          <input name="doctorName" placeholder="Doctor name" required />
+          <input name="scheduleAt" type="datetime-local" required />
+          <textarea name="reason" placeholder="Reason" required></textarea>
+          <textarea name="note" placeholder="Note"></textarea>
+          <button class="btn" type="submit">Submit Appointment</button>
+        </form>
+        <p class="hint">Current appointment: <span id="appointmentId">None</span></p>
+      </section>
+
+      <section id="adminSection" class="card hidden">
+        <p class="section-tag">Operations</p>
+        <h2>Admin</h2>
+        <form id="adminLoginForm" class="form-grid">
+          <input name="passkey" type="password" placeholder="Admin passkey" required />
+          <button class="btn" type="submit">Login</button>
+        </form>
+
+        <div class="admin-actions">
+          <button id="refreshStats" class="btn btn-secondary" type="button">Refresh Stats</button>
+          <button id="logoutAdmin" class="btn btn-danger" type="button">Logout</button>
+        </div>
+
+        <div id="statsBox" class="stats"></div>
+        <div id="appointmentsBox" class="table-wrap"></div>
+      </section>
+
+      <section class="card">
+        <h2>Status</h2>
+        <pre id="log"></pre>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

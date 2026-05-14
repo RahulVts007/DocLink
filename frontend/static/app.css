@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg-0: #091018;
+  --bg-1: #0f1824;
+  --panel: rgba(20, 29, 41, 0.82);
+  --panel-solid: #16212f;
+  --line: rgba(148, 182, 217, 0.2);
+  --text: #eaf3ff;
+  --muted: #9eb3cc;
+  --brand: #50e3a4;
+  --brand-deep: #13281f;
+  --action: #6ec1ff;
+  --danger: #ff8a84;
+  --shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 420px at 12% -10%, rgba(80, 227, 164, 0.18), transparent 60%),
+    radial-gradient(760px 380px at 90% 0%, rgba(110, 193, 255, 0.2), transparent 58%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  background: rgba(9, 16, 24, 0.72);
+}
+
+.brand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand img {
+  width: 146px;
+}
+
+.brand-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 24px auto 30px;
+  padding: 0 18px 34px;
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  animation: rise-in 420ms ease both;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(96deg, rgba(15, 24, 36, 0.9), rgba(15, 24, 36, 0.62)),
+    url('/assets/images/onboarding-img.png') center/cover;
+  min-height: 240px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -100px -100px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(80, 227, 164, 0.3), rgba(80, 227, 164, 0));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #b9ffd5;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.06;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.28rem;
+}
+
+p {
+  margin: 0;
+}
+
+.section-tag {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(110, 193, 255, 0.28);
+  color: #c6e8ff;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.form-grid {
+  display: grid;
+  gap: 11px;
+}
+
+.form-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  background: rgba(9, 15, 23, 0.72);
+  border: 1px solid rgba(152, 183, 214, 0.24);
+  color: var(--text);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(110, 193, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(110, 193, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+textarea {
+  min-height: 88px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.btn {
+  border: 0;
+  background: linear-gradient(120deg, #67f1b4, #39cf92);
+  color: #072418;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.btn:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: linear-gradient(120deg, #2f3f56, #29374d);
+  color: #e7f2ff;
+}
+
+.btn-danger {
+  background: linear-gradient(120deg, #ff958e, #ea6b66);
+  color: #2d1010;
+}
+
+.hidden {
+  display: none;
+}
+
+.hint {
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 0;
+  color: #b8cce3;
+  max-height: 260px;
+  overflow: auto;
+  background: rgba(8, 13, 20, 0.65);
+  border: 1px solid rgba(140, 173, 206, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.stats div {
+  background: rgba(8, 14, 22, 0.74);
+  border: 1px solid rgba(145, 178, 213, 0.2);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.stats strong {
+  font-size: 1.28rem;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgba(142, 173, 205, 0.18);
+  padding: 10px 8px;
+  text-align: left;
+}
+
+th {
+  color: #d5e9ff;
+  font-size: 0.87rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.77rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.status-pending {
+  color: #9ad3ff;
+  background: rgba(110, 193, 255, 0.16);
+  border-color: rgba(110, 193, 255, 0.38);
+}
+
+.status-scheduled {
+  color: #88f0c3;
+  background: rgba(80, 227, 164, 0.16);
+  border-color: rgba(80, 227, 164, 0.36);
+}
+
+.status-cancelled {
+  color: #ffb1ac;
+  background: rgba(255, 138, 132, 0.16);
+  border-color: rgba(255, 138, 132, 0.36);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-grid.two,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
